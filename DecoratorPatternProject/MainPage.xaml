@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="DecoratorPatternProject.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DecoratorPatternProject"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <RelativePanel>
+        <RadioButton Margin="111,120,0,0" VerticalAlignment="Top">Normal</RadioButton>
+        <RadioButton Margin="111,240,0,0" VerticalAlignment="Top" >Advantage</RadioButton>
+        <RadioButton Margin="111,360,0,0" VerticalAlignment="Top">Disadvantage</RadioButton>
+        </RelativePanel>
+        <RelativePanel>
+            <CheckBox x:Name="Ability" Margin="333, 120, 0, 0" VerticalAlignment="Top">Ability</CheckBox>
+            <CheckBox x:Name="Proficiency" Margin="333, 240, 0, 0" VerticalAlignment="Top">Proficiency</CheckBox>
+            <CheckBox x:Name="Item" Margin="333, 360, 0, 0" VerticalAlignment="Top">Item</CheckBox>
+        </RelativePanel>
+        <RelativePanel>
+            <TextBox x:Name="AbilityText" IsEnabled="{Binding ElementName=Ability, Path=IsChecked}" Margin="555, 120, 0,0" Width="300" VerticalAlignment="Top"></TextBox>
+            <TextBox x:Name="ProficiencyText" IsEnabled="{Binding ElementName=Proficiency, Path=IsChecked}" Margin="555, 240, 0,0" Width="300" VerticalAlignment="Top"></TextBox>
+            <TextBox x:Name="ItemText" IsEnabled="{Binding ElementName=Item, Path=IsChecked}" Margin="555, 360, 0,0" Width="300" VerticalAlignment="Top"></TextBox>
+        </RelativePanel>
+        <Button x:Name="throwDice" Margin="111, 480, 0, 0" VerticalAlignment="Top" Click="ThrowDice_Click" ClickMode="Press">Würfeln</Button>
+        <TextBlock x:Name="tb" Margin="111, 600, 0,0" VerticalAlignment="Top" Text=""> </TextBlock>
+    </Grid>
+</Page>
