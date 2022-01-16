@@ -35,17 +35,29 @@ namespace DecoratorPatternProject
             DiceInterface dice = new Dice();
             
             string dicethrown = "";
-            if(Ability.IsEnabled)
+            if (Ability.IsEnabled)
             {
                 string abil = AbilityText.Text;
                 DiceInterface dice2 = new BonusDice(dice, abil);
-                
+
                 dicethrown = dice2.ThrowDice();
                 this.tb.Text = dicethrown + "+ " + abil;
             }
-            else if(Proficiency.IsEnabled)
+            if (Proficiency.IsEnabled)
             {
-                
+                string prof= ProficiencyText.Text;
+                DiceInterface dice3 = new BonusDice(dice, prof);
+
+                dicethrown = dice3.ThrowDice();
+                this.tb.Text = dicethrown + "+ " + prof;
+            }
+            if (Item.IsEnabled)
+            {
+                string item = ItemText.Text;
+                DiceInterface dice4 = new BonusDice(dice, item);
+
+                dicethrown = dice4.ThrowDice();
+                this.tb.Text = dicethrown + "+ " + item;
             }
             
             
